@@ -1028,7 +1028,7 @@ const products = [
         name: "Amaron FLO Car Battery",
         price: 4999,
         originalPrice: 5499,
-        icon: "🔋"
+        image: "images/car-battery/images.jpeg"
     },
 
     {
@@ -1037,7 +1037,7 @@ const products = [
         name: "Exide Mileage Car Battery",
         price: 3500,
         originalPrice: 4000,
-        icon: "🔋"
+        image: "images/car-battery/20231108050741-b4bd7da1-7540-4042-b18b-991915e12c57.jpg"
     },
 
     {
@@ -1046,7 +1046,7 @@ const products = [
         name: "Amaron GO Automotive Battery",
         price: 2900,
         originalPrice: 3400,
-        icon: "🔋"
+        image: "images/car-battery/NCK01317.jpg"
     },
 
 
@@ -1060,7 +1060,7 @@ const products = [
         name: "Amaron PRO Bike Rider ABR-PR-APBTZ9R",
         price: 1595,
         originalPrice: 2095,
-        icon: "🏍️"
+        image: "images/bike-battery/images (1).jpeg"
     },
 
     {
@@ -1069,7 +1069,7 @@ const products = [
         name: "Amaron PRO Bike Rider 2 Wheeler Battery",
         price: 906,
         originalPrice: 1406,
-        icon: "🏍️"
+        image: "images/bike-battery/AP-BTZ4L_AP-BTZ4L_DSC05787.png"
     },
 
     {
@@ -1078,7 +1078,7 @@ const products = [
         name: "Exide Xplore XLTZ4A 4Ah Battery",
         price: 384,
         originalPrice: 884,
-        icon: "🏍️"
+        image: "images/bike-battery/images.jpeg"
     },
 
 
@@ -1092,7 +1092,7 @@ const products = [
         name: "Exide Invamart ISTT1500 150Ah Tall Tubular",
         price: 13236,
         originalPrice: 13736,
-        icon: "🔋"
+        image: "images/inverter-battery/home-invaMaster-combos_large.png"
     },
 
     {
@@ -1101,7 +1101,7 @@ const products = [
         name: "Amaron Current 150Ah Tall Tubular",
         price: 16438,
         originalPrice: 16938,
-        icon: "🔋"
+        image: "images/inverter-battery/Tubular Battery_Front side_3.jpg"
     },
 
     {
@@ -1110,7 +1110,7 @@ const products = [
         name: "Luminous Red Charge RC18000 150Ah",
         price: 9500,
         originalPrice: 10000,
-        icon: "🔋"
+        image: "images/inverter-battery/157_Luminous RED CHARGE RC18000 150AH.jpg"
     },
 
 
@@ -1124,7 +1124,7 @@ const products = [
         name: "V-Guard Prime 1150 MiLi",
         price: 6099,
         originalPrice: 6599,
-        icon: "⚡"
+        image: "images/inverter/images.jpeg"
     },
 
     {
@@ -1133,7 +1133,7 @@ const products = [
         name: "Luminous Optimus 2800",
         price: 16699,
         originalPrice: 17199,
-        icon: "⚡"
+        image: "images/inverter/309_Luminous_optimus_2800_2.5KVA_12V Pure Sinewave Inverter.png"
     },
 
     {
@@ -1142,7 +1142,7 @@ const products = [
         name: "V-Guard Prime 1150 MiLi + Battery Combo",
         price: 19999,
         originalPrice: 20499,
-        icon: "⚡"
+        image: "images/inverter/images (1).jpeg"
     },
 
 
@@ -1156,7 +1156,7 @@ const products = [
         name: "Voltas 1.5 Ton 3-Star Inverter Split AC",
         price: 31699,
         originalPrice: 32199,
-        icon: "❄️"
+        image: "images/ac/voltas-1-5-ton-3-star-inverter-split-ac-2026.webp"
     },
 
     {
@@ -1165,7 +1165,7 @@ const products = [
         name: "Voltas 1.5 Ton 5-Star Inverter Split AC",
         price: 46490,
         originalPrice: 46990,
-        icon: "❄️"
+        image: "images/ac/images.jpeg"
     },
 
     {
@@ -1174,7 +1174,7 @@ const products = [
         name: "Daikin FTKU50XV16MKB 1.5 Ton 5-Star Inverter AC",
         price: 46790,
         originalPrice: 47290,
-        icon: "❄️"
+        image: "images/ac/daikin-ftku50-1-5-ton-5-star-inverter-split-ac.png"
     },
 
 
@@ -1188,7 +1188,7 @@ const products = [
         name: "Samsung RT28C3733S8 236L 3-Star Double Door",
         price: 24990,
         originalPrice: 25490,
-        image: "images/refrigerators/samsung-rt28c3733s8.jpg"
+        image: "images/refrigerators/275390_0_laRFw8aKo8.webp"
     },
 
     {
@@ -1197,7 +1197,7 @@ const products = [
         name: "LG GLD1956ZABW 185L 5-Star Single Door",
         price: 17990,
         originalPrice: 18490,
-        icon: "🧊"
+        image: "images/refrigerators/Gtc1s4EW.webp"
     },
 
     {
@@ -1206,7 +1206,7 @@ const products = [
         name: "Whirlpool NEO DF278 PRM 235L Double Door",
         price: 21490,
         originalPrice: 21990,
-        icon: "🧊"
+        image: "images/refrigerators/Whirlpool-235-l-frost-free-double-door-2-star-refrigerator-neo-df278-prm-arctic-steel-Front-View.webp"
     },
 
 
@@ -1489,9 +1489,15 @@ function displayProducts(category = "All") {
 
         card.innerHTML = `
 
-            <div class="product-image">
-                ${product.icon}
-            </div>
+          <div class="product-image">
+
+    <img
+        src="${product.image}"
+        alt="${product.name}"
+        style="width: 100%; height: 100%; object-fit: contain;"
+    >
+
+</div>
 
             <div class="product-content">
 
