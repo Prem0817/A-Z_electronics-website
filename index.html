@@ -679,6 +679,94 @@
     </section>
 
     <!-- ──────────────────────────────── CATEGORIES ──────────────────────────────── -->
+<section class="categories" id="categories">
+
+    <h2 class="section-title">Shop by Category</h2>
+
+    <div class="categories-grid">
+
+        <div class="category-card" onclick="filterProducts('Car Batteries')">
+            <div class="category-icon">🔋</div>
+            <h3>Car Batteries</h3>
+            <p>Reliable batteries for cars</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('Bike Batteries')">
+            <div class="category-icon">🏍️</div>
+            <h3>Bike Batteries</h3>
+            <p>Power for two-wheelers</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('Inverter Batteries')">
+            <div class="category-icon">🔋</div>
+            <h3>Inverter Batteries</h3>
+            <p>Tubular & backup batteries</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('Inverters')">
+            <div class="category-icon">⚡</div>
+            <h3>Inverters</h3>
+            <p>Home & shop power backup</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('AC')">
+            <div class="category-icon">❄️</div>
+            <h3>Air Conditioners</h3>
+            <p>Inverter & energy-efficient ACs</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('Refrigerators')">
+            <div class="category-icon">🧊</div>
+            <h3>Refrigerators</h3>
+            <p>Single & double door</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('TV')">
+            <div class="category-icon">📺</div>
+            <h3>Televisions</h3>
+            <p>Smart & 4K TVs</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('RO')">
+            <div class="category-icon">💧</div>
+            <h3>RO / Water Purifiers</h3>
+            <p>Clean drinking water</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('Washing Machine')">
+            <div class="category-icon">🧺</div>
+            <h3>Washing Machines</h3>
+            <p>Top & front load</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('Microwave')">
+            <div class="category-icon">🍲</div>
+            <h3>Microwave Ovens</h3>
+            <p>Solo & convection</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('Solar')">
+            <div class="category-icon">☀️</div>
+            <h3>Solar</h3>
+            <p>Solar power solutions</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('UPS')">
+            <div class="category-icon">🔌</div>
+            <h3>UPS</h3>
+            <p>Home & office backup</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('Air Purifier')">
+            <div class="category-icon">🌬️</div>
+            <h3>Air Purifiers</h3>
+            <p>Cleaner indoor air</p>
+        </div>
+
+    </div>
+
+</section>
+    <!-- ──────────────────────────────── CATEGORIES ──────────────────────────────── 
     <section class="categories">
         <h2 class="section-title">What We Offer</h2>
         <div class="categories-grid">
@@ -713,9 +801,31 @@
                 <p>Installation & repair support</p>
             </div>
         </div>
-    </section>
+    </section> -->
+<!-- ──────────────────────────────── PRODUCTS ──────────────────────────────── -->
+<section class="featured-section" id="products">
 
-    <!-- ──────────────────────────────── FEATURED PRODUCTS ──────────────────────────────── -->
+    <h2 class="section-title">Our Products</h2>
+
+    <div style="text-align: center; margin-bottom: 2rem;">
+
+    <button
+        class="product-btn"
+        style="max-width: 180px;"
+        onclick="filterProducts('All')">
+
+        🛍️ All Products
+
+    </button>
+
+</div>
+
+    <div class="products-grid" id="productsGrid">
+        <!-- Products will be added here -->
+    </div>
+
+</section>
+    <!-- ──────────────────────────────── FEATURED PRODUCTS ──────────────────────────────── 
     <section class="featured-section" id="products">
         <h2 class="section-title">Featured Products</h2>
         <div class="products-grid">
@@ -779,7 +889,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- ──────────────────────────────── SERVICES SECTION ──────────────────────────────── -->
     <section class="services" id="services">
@@ -902,48 +1012,537 @@
     <!-- ──────────────────────────────── FLOATING WHATSAPP ──────────────────────────────── -->
     <a href="https://wa.me/919811215923?text=Hi%20AtoZBatteryBazar%20I%20need%20help" class="floating-whatsapp" title="Chat on WhatsApp">💬</a>
 
-    <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+    
+
+<script>
+
+const products = [
+
+    // =========================
+    // CAR BATTERIES
+    // =========================
+
+    {
+        category: "Car Batteries",
+        brand: "Amaron",
+        name: "Amaron FLO Car Battery",
+        price: 4999,
+        originalPrice: 5499,
+        icon: "🔋"
+    },
+
+    {
+        category: "Car Batteries",
+        brand: "Exide",
+        name: "Exide Mileage Car Battery",
+        price: 3500,
+        originalPrice: 4000,
+        icon: "🔋"
+    },
+
+    {
+        category: "Car Batteries",
+        brand: "Amaron",
+        name: "Amaron GO Automotive Battery",
+        price: 2900,
+        originalPrice: 3400,
+        icon: "🔋"
+    },
+
+
+    // =========================
+    // BIKE BATTERIES
+    // =========================
+
+    {
+        category: "Bike Batteries",
+        brand: "Amaron",
+        name: "Amaron PRO Bike Rider ABR-PR-APBTZ9R",
+        price: 1595,
+        originalPrice: 2095,
+        icon: "🏍️"
+    },
+
+    {
+        category: "Bike Batteries",
+        brand: "Amaron",
+        name: "Amaron PRO Bike Rider 2 Wheeler Battery",
+        price: 906,
+        originalPrice: 1406,
+        icon: "🏍️"
+    },
+
+    {
+        category: "Bike Batteries",
+        brand: "Exide",
+        name: "Exide Xplore XLTZ4A 4Ah Battery",
+        price: 384,
+        originalPrice: 884,
+        icon: "🏍️"
+    },
+
+
+    // =========================
+    // INVERTER BATTERIES
+    // =========================
+
+    {
+        category: "Inverter Batteries",
+        brand: "Exide",
+        name: "Exide Invamart ISTT1500 150Ah Tall Tubular",
+        price: 13236,
+        originalPrice: 13736,
+        icon: "🔋"
+    },
+
+    {
+        category: "Inverter Batteries",
+        brand: "Amaron",
+        name: "Amaron Current 150Ah Tall Tubular",
+        price: 16438,
+        originalPrice: 16938,
+        icon: "🔋"
+    },
+
+    {
+        category: "Inverter Batteries",
+        brand: "Luminous",
+        name: "Luminous Red Charge RC18000 150Ah",
+        price: 9500,
+        originalPrice: 10000,
+        icon: "🔋"
+    },
+
+
+    // =========================
+    // INVERTERS
+    // =========================
+
+    {
+        category: "Inverters",
+        brand: "V-Guard",
+        name: "V-Guard Prime 1150 MiLi",
+        price: 6099,
+        originalPrice: 6599,
+        icon: "⚡"
+    },
+
+    {
+        category: "Inverters",
+        brand: "Luminous",
+        name: "Luminous Optimus 2800",
+        price: 16699,
+        originalPrice: 17199,
+        icon: "⚡"
+    },
+
+    {
+        category: "Inverters",
+        brand: "V-Guard",
+        name: "V-Guard Prime 1150 MiLi + Battery Combo",
+        price: 19999,
+        originalPrice: 20499,
+        icon: "⚡"
+    },
+
+
+    // =========================
+    // AC
+    // =========================
+
+    {
+        category: "AC",
+        brand: "Voltas",
+        name: "Voltas 1.5 Ton 3-Star Inverter Split AC",
+        price: 31699,
+        originalPrice: 32199,
+        icon: "❄️"
+    },
+
+    {
+        category: "AC",
+        brand: "Voltas",
+        name: "Voltas 1.5 Ton 5-Star Inverter Split AC",
+        price: 46490,
+        originalPrice: 46990,
+        icon: "❄️"
+    },
+
+    {
+        category: "AC",
+        brand: "Daikin",
+        name: "Daikin FTKU50XV16MKB 1.5 Ton 5-Star Inverter AC",
+        price: 46790,
+        originalPrice: 47290,
+        icon: "❄️"
+    },
+
+
+    // =========================
+    // REFRIGERATORS
+    // =========================
+
+    {
+        category: "Refrigerators",
+        brand: "Samsung",
+        name: "Samsung RT28C3733S8 236L 3-Star Double Door",
+        price: 24990,
+        originalPrice: 25490,
+        image: "images/refrigerators/samsung-rt28c3733s8.jpg"
+    },
+
+    {
+        category: "Refrigerators",
+        brand: "LG",
+        name: "LG GLD1956ZABW 185L 5-Star Single Door",
+        price: 17990,
+        originalPrice: 18490,
+        icon: "🧊"
+    },
+
+    {
+        category: "Refrigerators",
+        brand: "Whirlpool",
+        name: "Whirlpool NEO DF278 PRM 235L Double Door",
+        price: 21490,
+        originalPrice: 21990,
+        icon: "🧊"
+    },
+
+
+    // =========================
+    // TV
+    // =========================
+
+    {
+        category: "TV",
+        brand: "LG",
+        name: "LG UA8200 43-inch 4K Smart TV",
+        price: 30490,
+        originalPrice: 30990,
+        icon: "📺"
+    },
+
+    {
+        category: "TV",
+        brand: "Samsung",
+        name: "Samsung DUE76 43-inch 4K Smart TV",
+        price: 26490,
+        originalPrice: 26990,
+        icon: "📺"
+    },
+
+    {
+        category: "TV",
+        brand: "Sony",
+        name: "Sony BRAVIA 2 S20B 43-inch 4K TV",
+        price: 36360,
+        originalPrice: 36860,
+        icon: "📺"
+    },
+
+
+    // =========================
+    // RO
+    // =========================
+
+    {
+        category: "RO",
+        brand: "KENT",
+        name: "KENT Grand Plus RO",
+        price: 19499,
+        originalPrice: 19999,
+        icon: "💧"
+    },
+
+    {
+        category: "RO",
+        brand: "Eureka Forbes",
+        name: "Aquaguard UV/RO Water Purifier",
+        price: 6499,
+        originalPrice: 6999,
+        icon: "💧"
+    },
+
+    {
+        category: "RO",
+        brand: "Urban Company",
+        name: "Urban Company Native M1 RO",
+        price: 14999,
+        originalPrice: 15499,
+        icon: "💧"
+    },
+
+
+    // =========================
+    // WASHING MACHINES
+    // =========================
+
+    {
+        category: "Washing Machine",
+        brand: "LG",
+        name: "LG T80KMMB3Z 8kg Fully Automatic Top Load",
+        price: 17449,
+        originalPrice: 17949,
+        icon: "🧺"
+    },
+
+    {
+        category: "Washing Machine",
+        brand: "Samsung",
+        name: "Samsung Ecobubble WA40F08D1C 8kg Top Load",
+        price: 19402,
+        originalPrice: 19902,
+        icon: "🧺"
+    },
+
+    {
+        category: "Washing Machine",
+        brand: "IFB",
+        name: "IFB SERENA VXN 7012 7kg Front Load",
+        price: 27490,
+        originalPrice: 27990,
+        icon: "🧺"
+    },
+
+
+    // =========================
+    // MICROWAVE
+    // =========================
+
+    {
+        category: "Microwave",
+        brand: "LG",
+        name: "LG 28L Convection Microwave",
+        price: 14040,
+        originalPrice: 14540,
+        icon: "🍲"
+    },
+
+    {
+        category: "Microwave",
+        brand: "LG",
+        name: "LG 28L Charcoal Convection Microwave",
+        price: 21009,
+        originalPrice: 21509,
+        icon: "🍲"
+    },
+
+    {
+        category: "Microwave",
+        brand: "IFB",
+        name: "IFB 20–23L Solo Microwave",
+        price: 0,
+        originalPrice: 0,
+        icon: "🍲"
+    },
+
+
+    // =========================
+    // SOLAR
+    // =========================
+
+    {
+        category: "Solar",
+        brand: "V-Guard",
+        name: "V-Guard Smart Pro 1200S Solar Inverter",
+        price: 7699,
+        originalPrice: 8199,
+        icon: "☀️"
+    },
+
+    {
+        category: "Solar",
+        brand: "UTL",
+        name: "UTL Gamma+ 3400 rMPPT Solar Inverter",
+        price: 21830,
+        originalPrice: 22330,
+        icon: "☀️"
+    },
+
+    {
+        category: "Solar",
+        brand: "UTL",
+        name: "UTL 3kW Single-Phase MPPT On-Grid Inverter",
+        price: 18230,
+        originalPrice: 18730,
+        icon: "☀️"
+    },
+
+
+    // =========================
+    // UPS
+    // =========================
+
+    {
+        category: "UPS",
+        brand: "APC",
+        name: "APC Back-UPS BX1100C-IN 1100VA",
+        price: 6772,
+        originalPrice: 7272,
+        icon: "🔌"
+    },
+
+    {
+        category: "UPS",
+        brand: "APC",
+        name: "APC Back-UPS Pro 1000",
+        price: 13495,
+        originalPrice: 13995,
+        icon: "🔌"
+    },
+
+    {
+        category: "UPS",
+        brand: "CyberPower",
+        name: "CyberPower 600VA Home & Office UPS",
+        price: 0,
+        originalPrice: 0,
+        icon: "🔌"
+    },
+
+
+    // =========================
+    // AIR PURIFIERS
+    // =========================
+
+    {
+        category: "Air Purifier",
+        brand: "Xiaomi",
+        name: "Xiaomi Smart Air Purifier 4 Lite",
+        price: 12499,
+        originalPrice: 12999,
+        icon: "🌬️"
+    },
+
+    {
+        category: "Air Purifier",
+        brand: "Honeywell",
+        name: "Honeywell Air Touch V2",
+        price: 8647,
+        originalPrice: 9147,
+        icon: "🌬️"
+    },
+
+    {
+        category: "Air Purifier",
+        brand: "Sharp",
+        name: "Sharp Plasmacluster Air Purifier",
+        price: 0,
+        originalPrice: 0,
+        icon: "🌬️"
+    }
+
+];
+
+function displayProducts(category = "All") {
+
+    const productsGrid = document.getElementById("productsGrid");
+
+    const filteredProducts =
+        category === "All"
+            ? products
+            : products.filter(product => product.category === category);
+
+    productsGrid.innerHTML = "";
+
+    filteredProducts.forEach(product => {
+
+        const card = document.createElement("div");
+
+        card.className = "product-card";
+
+        let priceHTML = "";
+
+        if (product.price > 0) {
+
+            priceHTML = `
+                <div class="product-price">
+
+                    <span class="price-current">
+                        ₹${product.price.toLocaleString("en-IN")}
+                    </span>
+
+                    <span class="price-original">
+                        ₹${product.originalPrice.toLocaleString("en-IN")}
+                    </span>
+
+                    <span class="discount-badge">
+                        SAVE ₹500
+                    </span>
+
+                </div>
+            `;
+
+        } else {
+
+            priceHTML = `
+                <div class="product-price">
+
+                    <span class="price-current">
+                        Contact for Price
+                    </span>
+
+                </div>
+            `;
+        }
+
+        card.innerHTML = `
+
+            <div class="product-image">
+                ${product.icon}
+            </div>
+
+            <div class="product-content">
+
+                <div class="product-brand">
+                    ${product.brand}
+                </div>
+
+                <h3 class="product-name">
+                    ${product.name}
+                </h3>
+
+                ${priceHTML}
+
+                <div class="product-warranty">
+                    ✓ Manufacturer Warranty
+                </div>
+
+                <button
+                    class="product-btn"
+                    onclick="contactProduct('${product.name.replace(/'/g, "\\'")}')">
+
+                    💬 Enquire on WhatsApp
+
+                </button>
+
+            </div>
+        `;
+
+        productsGrid.appendChild(card);
+    });
+}
+function contactProduct(productName) {
+
+    const message =
+        `Dear AtoZ Battery Bazar Team, I am interested in ${productName}. Please confirm today's price and availability.`;
+
+    const whatsappUrl =
+        `https://wa.me/919811215923?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappUrl, "_blank");
+}
+function filterProducts(category) {
+
+    displayProducts(category);
+
+    document.getElementById("products")
+        .scrollIntoView({
+            behavior: "smooth"
         });
-
-        // Add click handlers to product buttons
-        document.querySelectorAll('.product-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const productName = this.closest('.product-card').querySelector('.product-name').textContent;
-                const whatsappUrl = `https://wa.me/9198112 15923?text=I%20want%20details%20about%20${encodeURIComponent(productName)}`;
-                window.open(whatsappUrl, '_blank');
-            });
-        });
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.product-card, .service-card, .category-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
+}
+displayProducts();
     </script>
 </body>
 </html>
