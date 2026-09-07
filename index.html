@@ -124,6 +124,17 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
         }
+@media (max-width: 1000px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
         @media (max-width: 768px) {
             .nav-links {
@@ -325,13 +336,40 @@
             color: var(--text-primary);
         }
 
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-container {
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto 2rem;
+}
+
+#productSearch {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#productSearch::placeholder {
+    color: var(--text-muted);
+}
+
+#productSearch:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
 
         .product-card {
             background: var(--bg-secondary);
@@ -807,6 +845,17 @@
 
     <h2 class="section-title">Our Products</h2>
 
+    <div class="search-container">
+
+    <input
+        type="text"
+        id="productSearch"
+        placeholder="🔎 Search products, brands or models..."
+        oninput="searchProducts()"
+    >
+
+</div>
+
     <div style="text-align: center; margin-bottom: 2rem;">
 
     <button
@@ -1220,7 +1269,7 @@ const products = [
         name: "LG UA8200 43-inch 4K Smart TV",
         price: 30490,
         originalPrice: 30990,
-        icon: "📺"
+        image: "images/tv/319095_0_QHFZDUzVnI.webp"
     },
 
     {
@@ -1229,7 +1278,7 @@ const products = [
         name: "Samsung DUE76 43-inch 4K Smart TV",
         price: 26490,
         originalPrice: 26990,
-        icon: "📺"
+        image: "images/tv/316091_0_t6z1CHpoEW.webp"
     },
 
     {
@@ -1238,7 +1287,7 @@ const products = [
         name: "Sony BRAVIA 2 S20B 43-inch 4K TV",
         price: 36360,
         originalPrice: 36860,
-        icon: "📺"
+        image: "images/tv/307919_0_kqrgrc.webp"
     },
 
 
@@ -1252,7 +1301,7 @@ const products = [
         name: "KENT Grand Plus RO",
         price: 19499,
         originalPrice: 19999,
-        icon: "💧"
+        image: "images/ro/226375_0_4HqvJ0ASQ.webp"
     },
 
     {
@@ -1261,7 +1310,7 @@ const products = [
         name: "Aquaguard UV/RO Water Purifier",
         price: 6499,
         originalPrice: 6999,
-        icon: "💧"
+        image: "images/ro/302569_0_c7cdra.webp"
     },
 
     {
@@ -1270,7 +1319,7 @@ const products = [
         name: "Urban Company Native M1 RO",
         price: 14999,
         originalPrice: 15499,
-        icon: "💧"
+        image: "images/ro/307956_3_O4Qdi8fQuX.webp"
     },
 
 
@@ -1284,7 +1333,7 @@ const products = [
         name: "LG T80KMMB3Z 8kg Fully Automatic Top Load",
         price: 17449,
         originalPrice: 17949,
-        icon: "🧺"
+        image: "images/washing-machine/312758_9_NVHJtd20M.webp"
     },
 
     {
@@ -1293,7 +1342,7 @@ const products = [
         name: "Samsung Ecobubble WA40F08D1C 8kg Top Load",
         price: 19402,
         originalPrice: 19902,
-        icon: "🧺"
+        image: "images/washing-machine/274528_0_pd8vlp.webp"
     },
 
     {
@@ -1302,7 +1351,7 @@ const products = [
         name: "IFB SERENA VXN 7012 7kg Front Load",
         price: 27490,
         originalPrice: 27990,
-        icon: "🧺"
+        image: "images/washing-machine/8903287033223-.avif"
     },
 
 
@@ -1316,7 +1365,7 @@ const products = [
         name: "LG 28L Convection Microwave",
         price: 14040,
         originalPrice: 14540,
-        icon: "🍲"
+        image: "images/microwave/258778_0_foip8o.webp"
     },
 
     {
@@ -1325,7 +1374,7 @@ const products = [
         name: "LG 28L Charcoal Convection Microwave",
         price: 21009,
         originalPrice: 21509,
-        icon: "🍲"
+        image: "images/microwave/246524_0_bnq0p2.webp"
     },
 
     {
@@ -1334,7 +1383,7 @@ const products = [
         name: "IFB 20–23L Solo Microwave",
         price: 0,
         originalPrice: 0,
-        icon: "🍲"
+        image: "images/microwave/308496_0_oAlmwQY2yC.webp"
     },
 
 
@@ -1348,7 +1397,7 @@ const products = [
         name: "V-Guard Smart Pro 1200S Solar Inverter",
         price: 7699,
         originalPrice: 8199,
-        icon: "☀️"
+        image: "images/solar/images.jpeg"
     },
 
     {
@@ -1357,7 +1406,7 @@ const products = [
         name: "UTL Gamma+ 3400 rMPPT Solar Inverter",
         price: 21830,
         originalPrice: 22330,
-        icon: "☀️"
+        image: "images/solar/Gamma-side-view.png"
     },
 
     {
@@ -1366,7 +1415,7 @@ const products = [
         name: "UTL 3kW Single-Phase MPPT On-Grid Inverter",
         price: 18230,
         originalPrice: 18730,
-        icon: "☀️"
+        image: "images/solar/WhatsApp_Image_2024-02-17_at_12.22.17_PM-transformed_0dd78bc5-686f-4f17-a5be-758dec1b391f.webp"
     },
 
 
@@ -1380,7 +1429,7 @@ const products = [
         name: "APC Back-UPS BX1100C-IN 1100VA",
         price: 6772,
         originalPrice: 7272,
-        icon: "🔌"
+        image: "images/ups/rc-upload-1773209973109-820.png"
     },
 
     {
@@ -1389,7 +1438,7 @@ const products = [
         name: "APC Back-UPS Pro 1000",
         price: 13495,
         originalPrice: 13995,
-        icon: "🔌"
+        image: "images/ups/C5A4UpJWTECVRIXO5nQe_lRdAX9s9iR02PWY.jpeg"
     },
 
     {
@@ -1398,7 +1447,7 @@ const products = [
         name: "CyberPower 600VA Home & Office UPS",
         price: 0,
         originalPrice: 0,
-        icon: "🔌"
+        image: "images/ups/images.jpeg"
     },
 
 
@@ -1412,7 +1461,7 @@ const products = [
         name: "Xiaomi Smart Air Purifier 4 Lite",
         price: 12499,
         originalPrice: 12999,
-        icon: "🌬️"
+        image: "images/air-purifier/303011_0_neqdgy.webp"
     },
 
     {
@@ -1421,7 +1470,7 @@ const products = [
         name: "Honeywell Air Touch V2",
         price: 8647,
         originalPrice: 9147,
-        icon: "🌬️"
+        image: "images/air-purifier/300348_0_hjvbjg.webp"
     },
 
     {
@@ -1430,7 +1479,7 @@ const products = [
         name: "Sharp Plasmacluster Air Purifier",
         price: 0,
         originalPrice: 0,
-        icon: "🌬️"
+        image: "images/air-purifier/308597_0_ewt2uo.webp"
     }
 
 ];
@@ -1549,6 +1598,145 @@ function filterProducts(category) {
         });
 }
 displayProducts();
+function searchProducts() {
+
+    const searchText =
+        document.getElementById("productSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const productsGrid =
+        document.getElementById("productsGrid");
+
+    if (searchText === "") {
+
+        displayProducts();
+        return;
+
+    }
+
+    const results = products.filter(product => {
+
+        return (
+            product.name.toLowerCase().includes(searchText) ||
+            product.brand.toLowerCase().includes(searchText) ||
+            product.category.toLowerCase().includes(searchText)
+        );
+
+    });
+
+    productsGrid.innerHTML = "";
+
+    if (results.length === 0) {
+
+        productsGrid.innerHTML = `
+            <div style="
+                grid-column: 1 / -1;
+                text-align: center;
+                padding: 3rem;
+                color: var(--text-muted);
+            ">
+
+                <div style="font-size: 3rem;">🔍</div>
+
+                <h3>No products found</h3>
+
+                <p>Try another product, brand or model.</p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+    results.forEach(product => {
+
+        const card = document.createElement("div");
+
+        card.className = "product-card";
+
+        let priceHTML = "";
+
+        if (product.price > 0) {
+
+            priceHTML = `
+                <div class="product-price">
+
+                    <span class="price-current">
+                        ₹${product.price.toLocaleString("en-IN")}
+                    </span>
+
+                    <span class="price-original">
+                        ₹${product.originalPrice.toLocaleString("en-IN")}
+                    </span>
+
+                    <span class="discount-badge">
+                        SAVE ₹500
+                    </span>
+
+                </div>
+            `;
+
+        } else {
+
+            priceHTML = `
+                <div class="product-price">
+
+                    <span class="price-current">
+                        Contact for Price
+                    </span>
+                </div>
+            `;
+        }
+
+        card.innerHTML = `
+
+            <div class="product-image">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    style="
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    "
+                >
+
+            </div>
+
+            <div class="product-content">
+
+                <div class="product-brand">
+                    ${product.brand}
+                </div>
+
+                <h3 class="product-name">
+                    ${product.name}
+                </h3>
+
+                ${priceHTML}
+
+                <div class="product-warranty">
+                    ✓ Manufacturer Warranty
+                </div>
+
+                <button
+                    class="product-btn"
+                    onclick="contactProduct('${product.name.replace(/'/g, "\\'")}')">
+
+                    💬 Enquire on WhatsApp
+
+                </button>
+
+            </div>
+        `;
+
+        productsGrid.appendChild(card);
+
+    });
+}
     </script>
 </body>
 </html>
