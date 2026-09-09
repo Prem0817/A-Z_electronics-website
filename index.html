@@ -64,15 +64,16 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
+     .logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 180px;
+    height: auto;
+    display: block;
+}
 
         .nav-links {
             display: flex;
@@ -142,6 +143,9 @@
             .nav-container {
                 justify-content: space-between;
             }
+            .logo img {
+    width: 150px;
+}
         }
 
         /* ──────────────────────────────────── HERO SECTION ────────────────────────────────── */
@@ -785,7 +789,9 @@
     <!-- ──────────────────────────────── NAVBAR ──────────────────────────────── -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">⚡ A TO Z Battery Bazar</div>
+            <div class="logo">
+    <img src="images/logo.png" alt="A TO Z Battery Bazar">
+</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
