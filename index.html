@@ -971,11 +971,11 @@
     .logo {
         order: 1 !important;
         flex: 0 0 auto !important;
-        width: 130px !important;
+        width: 140px !important;
     }
 
     .logo img {
-        width: 130px !important;
+        width: 140px !important;
         height: auto !important;
         display: block !important;
     }
@@ -1049,6 +1049,10 @@
         justify-content: center !important;
 
         font-size: 0.75rem !important;
+
+        .whatsapp-btn {
+    display: none !important;
+}
     }
 }
 
@@ -1098,6 +1102,48 @@
 
     .footer-section {
         width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .logo {
+        flex: 0 0 auto !important;
+        width: 110px !important;
+    }
+
+    .logo img {
+        width: 110px !important;
+        height: auto !important;
+    }
+
+    .mobile-navbar-search {
+        display: block !important;
+        flex: 1 !important;
+        width: auto !important;
+        min-width: 0 !important;
+        margin: 0 0 0 12px !important;
+    }
+
+    #navbarProductSearch {
+        width: 100% !important;
+        height: 48px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Hide Chat ONLY on mobile */
+    .nav-container > .whatsapp-btn {
+        display: none !important;
+    }
+
+    /* Hide desktop links on mobile */
+    .nav-links {
+        display: none !important;
     }
 }
     </style>
