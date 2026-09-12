@@ -1372,6 +1372,15 @@
     }
 
 }
+/* ───────────── CATEGORY SHOW MORE ───────────── */
+
+.category-hidden {
+    display: none;
+}
+
+.category-hidden.category-visible {
+    display: block;
+}
     </style>
 </head>
 <body>
@@ -1460,49 +1469,63 @@
             <p>Single & double door</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('TV')">
+        <div class="category-card category-hidden" onclick="filterProducts('TV')">
             <div class="category-icon">📺</div>
             <h3>Televisions</h3>
             <p>Smart & 4K TVs</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('RO')">
+        <div class="category-card category-hidden" onclick="filterProducts('RO')">
             <div class="category-icon">💧</div>
             <h3>RO / Water Purifiers</h3>
             <p>Clean drinking water</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('Washing Machine')">
+        <div class="category-card category-hidden" onclick="filterProducts('Washing Machine')">
             <div class="category-icon">🧺</div>
             <h3>Washing Machines</h3>
             <p>Top & front load</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('Microwave')">
+        <div class="category-card category-hidden" onclick="filterProducts('Microwave')">
             <div class="category-icon">🍲</div>
             <h3>Microwave Ovens</h3>
             <p>Solo & convection</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('Solar')">
+        <div class="category-card category-hidden" onclick="filterProducts('Solar')">
             <div class="category-icon">☀️</div>
             <h3>Solar</h3>
             <p>Solar power solutions</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('UPS')">
+        <div class="category-card category-hidden" onclick="filterProducts('Air Purifier')">
             <div class="category-icon">🔌</div>
             <h3>UPS</h3>
             <p>Home & office backup</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('Air Purifier')">
+        <div class="category-card category-hidden" onclick="filterProducts('Air Purifier')">
             <div class="category-icon">🌬️</div>
             <h3>Air Purifiers</h3>
             <p>Cleaner indoor air</p>
         </div>
 
     </div>
+
+    <div style="text-align: center; margin-top: 1rem;">
+
+    <button
+        id="categoryToggleBtn"
+        class="product-btn"
+        style="max-width: 220px;"
+        onclick="toggleCategories()">
+
+        Show All Categories
+
+    </button>
+
+</div>
 
 </section>
     <!-- ──────────────────────────────── CATEGORIES ──────────────────────────────── 
@@ -2435,48 +2458,46 @@ function renderVisibleProducts() {
         productsGrid.appendChild(showMoreContainer);
     }
 }
-
-
 function showMoreProducts() {
 
     visibleProductCount += 6;
 
     renderVisibleProducts();
+
 }
-function contactProduct(productName) {
 
-    const message =
-        `Dear AtoZ Battery Bazar Team, I am interested in ${productName}. Please confirm today's price and availability.`;
 
-    const whatsappUrl =
-        `https://wa.me/919811215923?text=${encodeURIComponent(message)}`;
+function toggleCategories() {
 
-    window.open(whatsappUrl, "_blank");
+    const hiddenCategories =
+        document.querySelectorAll(".category-hidden");
+
+    const button =
+        document.getElementById("categoryToggleBtn");
+
+    hiddenCategories.forEach(category => {
+
+        category.classList.toggle("category-visible");
+
+    });
+
+    const showingAll =
+        hiddenCategories[0].classList.contains("category-visible");
+
+    if (showingAll) {
+
+        button.textContent = "Show Less Categories";
+
+    } else {
+
+        button.textContent = "Show All Categories";
+
+    }
 }
-function filterProducts(category) {
 
-    document.getElementById("navbarProductSearch").value = "";
 
-    displayProducts(category);
-
-    document.getElementById("products")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-}
+// LOAD PRODUCTS WHEN PAGE OPENS
 displayProducts();
-
-function filterProducts(category) {
-
-    document.getElementById("navbarProductSearch").value = "";
-
-    displayProducts(category);
-
-    document.getElementById("products")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-}
     </script>
 </body>
 </html>
