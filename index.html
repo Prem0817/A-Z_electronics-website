@@ -6,9 +6,17 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" href="/favicon.ico">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="canonical" href="https://atozbatterybazar.com/">
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="L-2WG8SLJ2qRs8V_MXKy5WPPlkOyn5In5zvoKXvWZv4" />
+
+    <meta
+  name="description"
+  content="AtoZ Battery Bazar is a Delhi-based electronics and appliance store offering car and bike batteries, inverter batteries, inverters, ACs, refrigerators, TVs, RO systems, washing machines, microwaves, solar products, UPS and air purifiers with sales and service."
+>
     <title>AtoZBatteryBazar — Electronics & Appliances Store</title>
     <style>
         * {
@@ -1139,6 +1147,16 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
+.all-products-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 1rem;
+}
+
+.all-products-btn {
+    max-width: 180px;
+}
 
 .show-more-btn:hover {
     background: var(--accent-primary);
@@ -1499,7 +1517,7 @@
             <p>Solar power solutions</p>
         </div>
 
-        <div class="category-card category-hidden" onclick="filterProducts('Air Purifier')">
+        <div class="category-card category-hidden" onclick="filterProducts('UPS')">
             <div class="category-icon">🔌</div>
             <h3>UPS</h3>
             <p>Home & office backup</p>
@@ -1580,18 +1598,7 @@
 
 </div>
 
-    <div style="text-align: center; margin-bottom: 2rem;">
 
-    <button
-        class="product-btn"
-        style="max-width: 180px;"
-        onclick="filterProducts('All')">
-
-        🛍️ All Products
-
-    </button>
-
-</div>
 
     <div class="products-grid" id="productsGrid">
         <!-- Products will be added here -->
@@ -2319,6 +2326,14 @@ const products = [
 let currentProducts = [];
 let visibleProductCount = 6;
 
+function filterProducts(category) {
+    displayProducts(category);
+
+    document.getElementById("products").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
 function displayProducts(category = "All") {
 
     const productsGrid = document.getElementById("productsGrid");
@@ -2333,7 +2348,6 @@ function displayProducts(category = "All") {
     renderVisibleProducts();
 }
 
-
 function renderVisibleProducts() {
 
     const productsGrid = document.getElementById("productsGrid");
@@ -2344,12 +2358,20 @@ function renderVisibleProducts() {
         currentProducts.slice(0, visibleProductCount);
 
 
+    // =========================
+    // DISPLAY PRODUCTS
+    // =========================
+
     visibleProducts.forEach(product => {
 
         const card = document.createElement("div");
 
         card.className = "product-card";
 
+
+        // =========================
+        // PRICE
+        // =========================
 
         let priceHTML = "";
 
@@ -2387,6 +2409,10 @@ function renderVisibleProducts() {
         }
 
 
+        // =========================
+        // PRODUCT CARD
+        // =========================
+
         card.innerHTML = `
 
             <div class="product-image">
@@ -2420,8 +2446,8 @@ function renderVisibleProducts() {
                 </div>
 
                 <button
-                    class="product-btn"
-                    onclick="contactProduct('${product.name.replace(/'/g, "\\'")}')">
+                    class="product-btn product-enquire-btn"
+                    type="button">
 
                     💬 Enquire on WhatsApp
 
@@ -2430,10 +2456,24 @@ function renderVisibleProducts() {
             </div>
         `;
 
+
+        // =========================
+        // WHATSAPP BUTTON
+        // =========================
+
+        const enquireButton =
+            card.querySelector(".product-enquire-btn");
+
+        enquireButton.addEventListener("click", function () {
+
+            contactProduct(product.name);
+
+        });
+
+
         productsGrid.appendChild(card);
 
     });
-
 
     // SHOW MORE BUTTON
 
@@ -2447,6 +2487,7 @@ function renderVisibleProducts() {
 
         showMoreContainer.innerHTML = `
             <button
+                type="button"
                 class="show-more-btn"
                 onclick="showMoreProducts()">
 
@@ -2457,10 +2498,168 @@ function renderVisibleProducts() {
 
         productsGrid.appendChild(showMoreContainer);
     }
+
+
+    // ALL PRODUCTS BUTTON
+
+    const allProductsContainer =
+        document.createElement("div");
+
+    allProductsContainer.className =
+        "all-products-container";
+
+    allProductsContainer.innerHTML = `
+        <button
+            type="button"
+            class="product-btn all-products-btn"
+            onclick="showAllProducts()">
+
+            🛍️ All Products
+
+        </button>
+    `;
+
+    productsGrid.appendChild(allProductsContainer);
 }
+    
+
+
 function showMoreProducts() {
 
     visibleProductCount += 6;
+
+    renderVisibleProducts();
+
+}
+
+function showAllProducts() {
+
+    currentProducts = products;
+
+    visibleProductCount = products.length;
+
+    renderVisibleProducts();
+
+}
+
+function filterProducts(category) {
+
+    displayProducts(category);
+
+    const productsSection =
+        document.getElementById("products");
+
+    if (productsSection) {
+
+        productsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+}
+
+function contactProduct(productName) {
+
+    const phoneNumber = "919811215923";
+
+    const message =
+        `Hello AtoZ Battery Bazar Team, I am interested in the product: ${productName}. Please share its availability and latest price.`;
+
+    const whatsappURL =
+        `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+
+}
+
+function searchProducts() {
+
+    const desktopSearch =
+        document.getElementById("productSearch");
+
+    const navbarSearch =
+        document.getElementById("navbarProductSearch");
+
+    let searchTerm = "";
+
+
+    // Check which search box is being used
+
+    if (
+        document.activeElement === navbarSearch &&
+        navbarSearch
+    ) {
+
+        searchTerm = navbarSearch.value
+            .trim()
+            .toLowerCase();
+
+    } else if (desktopSearch) {
+
+        searchTerm = desktopSearch.value
+            .trim()
+            .toLowerCase();
+
+    }
+
+
+    // Keep both search boxes synchronized
+
+    if (desktopSearch) {
+        desktopSearch.value =
+            searchTerm;
+    }
+
+    if (navbarSearch) {
+        navbarSearch.value =
+            searchTerm;
+    }
+
+
+    // No search text = show all products
+
+    if (!searchTerm) {
+
+        currentProducts = products;
+
+        visibleProductCount = 6;
+
+        renderVisibleProducts();
+
+        return;
+    }
+
+
+    // Search product name, brand and category
+
+    currentProducts = products.filter(product => {
+
+        return (
+
+            product.name
+                .toLowerCase()
+                .includes(searchTerm)
+
+            ||
+
+            product.brand
+                .toLowerCase()
+                .includes(searchTerm)
+
+            ||
+
+            product.category
+                .toLowerCase()
+                .includes(searchTerm)
+
+        );
+
+    });
+
+
+    visibleProductCount = 6;
 
     renderVisibleProducts();
 
